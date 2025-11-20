@@ -1,19 +1,21 @@
-import ParticleBackground from "@/components/ParticleBackground";
-import Header from "@/components/Header";
+import ParticleBackgroundV1 from "@/components/features/particles/particle-background-v1";
+import PageLayout from "@/components/layouts/page-layout";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center p-24">
-      <Header />
-      <ParticleBackground />
+    <PageLayout>
+      <ParticleBackgroundV1 />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none select-none" style={{ zIndex: 10 }}>
-        <h1 className="text-6xl font-bold text-black mb-4 tracking-tighter">
-          Antigravity
+        <h1 className="text-7xl font-bold text-black mb-6 tracking-tighter">
+          Google Antigravity
         </h1>
-        <p className="text-xl text-gray-600">
-          Move your mouse to interact with the particles
+        <p className="text-2xl text-gray-600 mb-8">
+          Experience the magic of particle interactions
+        </p>
+        <p className="text-lg text-gray-500 max-w-2xl">
+          Move your mouse to interact with the particles and explore the breathing effect
         </p>
       </div>
-    </main>
+    </PageLayout>
   );
 }

@@ -78,13 +78,13 @@ export default function Header() {
                                 {/* Version Links - 3cm gap from text, on left side */}
                                 <div className="flex flex-col gap-1">
                                     <Link
-                                        href="/"
+                                        href="/versions/v1"
                                         className="text-sm font-medium text-black hover:text-gray-700 transition-colors py-2 px-4 rounded-full hover:bg-gray-100"
                                     >
                                         Version 1
                                     </Link>
                                     <Link
-                                        href="/version-2"
+                                        href="/versions/v2"
                                         className="text-sm font-medium text-black hover:text-gray-700 transition-colors py-2 px-4 rounded-full hover:bg-gray-100"
                                     >
                                         Version 2
