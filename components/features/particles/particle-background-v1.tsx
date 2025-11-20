@@ -68,11 +68,11 @@ const ParticleSystem = () => {
                     float angle = atan(dy, dx);
                     
                     // Animation Constants
-                    float baseRadius = 4.0;
+                    float baseRadius = 3.5;
                     float borderThickness = 2.5;
                     
                     // Interaction Wave Calculation
-                    float waveInteraction = sin(angle * 2.0 - uTime * 2.0 * randomSpeed + randomPhase) * 0.5;
+                    float waveInteraction = sin(angle * 2.0 - uTime * 2.0 * randomSpeed + randomPhase) * 0.2;
                     float radiusWithWave = baseRadius + waveInteraction;
                     float distFromBorder = abs(dist - radiusWithWave);
                     
@@ -80,7 +80,7 @@ const ParticleSystem = () => {
                     float influence = max(0.0, 1.0 - distFromBorder / borderThickness);
                     
                     // Center Proximity
-                    float centerTransparency = min(dist / baseRadius, 1.0);
+                    float centerTransparency = min(dist / baseRadius, 0.70);
                     
                     // Final Position & Size Variables
                     vec3 finalPos = pos;
@@ -90,7 +90,7 @@ const ParticleSystem = () => {
                     if (influence > 0.0) {
                         // --- INTERACTION ZONE (Wavy Border) ---
                         
-                        float radialPush = waveInteraction * influence * 1.8 * (0.7 + randomVariation * 0.6);
+                        float radialPush = waveInteraction * influence * 1.5 * (0.7 + randomVariation * 0.6);
                         float perpAngle = angle + (randomVariation - 0.5) * 0.5;
                         
                         vec3 push = vec3(
@@ -107,7 +107,7 @@ const ParticleSystem = () => {
                         float scale = minScale + influence * maxScale * centerTransparency;
                         finalSize *= scale;
                         
-                        finalAlpha = centerTransparency * 0.9;
+                        finalAlpha = centerTransparency * 0.7;
                         
                     } else if (dist < baseRadius) {
                         // --- INSIDE ZONE (Breathing) ---
@@ -128,7 +128,7 @@ const ParticleSystem = () => {
                         float breathingScale = 0.5 + sin(breathingPhase) * 0.3 * randomVariation;
                         finalSize *= breathingScale * centerTransparency;
                         
-                        finalAlpha = centerTransparency * 0.7;
+                        finalAlpha = centerTransparency * 0.2;
                         
                     } else {
                         // --- OUTSIDE ZONE (Not near pointer) ---
@@ -137,7 +137,7 @@ const ParticleSystem = () => {
                         finalSize *= 0.5; 
                         
                         // Keep them somewhat transparent so they don't overwhelm, but visible
-                        finalAlpha = 0.4; 
+                        finalAlpha = 0.3; 
                     }
                     
                     vAlpha = finalAlpha;
