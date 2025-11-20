@@ -157,9 +157,9 @@ const ParticleSystem = () => {
             const influence = Math.max(0, 1 - distFromBorder / borderThickness);
 
             // Distance-based transparency (closer to mouse center = more transparent)
-            const maxDist = 10;
+            const maxDist = 20;
             const distanceFromCenter = Math.sqrt(origX * origX + origY * origY);
-            const transparencyFactor = 1 - Math.min(distanceFromCenter / maxDist, 0.5);
+            const transparencyFactor = 1 - Math.min(distanceFromCenter / maxDist, 0.7);
 
             // Make particles near mouse center more transparent
             const centerTransparency = Math.min(dist / baseRadius, 1); // 0 at center, 1 at radius
@@ -200,7 +200,7 @@ const ParticleSystem = () => {
                 // Move particles back and forth from center
                 const breathingPushX = Math.cos(angle) * breathingAmount * (1 - dist / baseRadius);
                 const breathingPushY = Math.sin(angle) * breathingAmount * (1 - dist / baseRadius);
-                const breathingPushZ = Math.sin(breathingPhase * 1.2) * 0.5 * randomVariation;
+                const breathingPushZ = Math.sin(breathingPhase * 1.2) * 0.2 * randomVariation;
 
                 positionAttr.setXYZ(
                     i,

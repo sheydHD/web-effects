@@ -1,8 +1,10 @@
 import ParticleBackground from "@/components/ParticleBackground";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center p-24">
+      <Header />
       <ParticleBackground />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none select-none" style={{ zIndex: 10 }}>
         <h1 className="text-6xl font-bold text-black mb-4 tracking-tighter">
